@@ -1,2 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using ;
+
+var senators = new NhlTeam(
+    NhlConference Eastern,
+    NhlDivision Atlantic,
+    "Senators",
+    "Ottawa");
+senators.GamesPlayed = 82
+senators.Wins = 33
+senators.Losses = 42;
+senators.OvertimeLosses;
+//Print the Points --- should be 73
+
+Console.WriteLine(senators);
+Console.WriteLine($"Points = {senators.Points}");
+  
