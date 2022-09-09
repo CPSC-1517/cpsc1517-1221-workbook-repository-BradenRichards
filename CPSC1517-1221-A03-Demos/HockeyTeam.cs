@@ -2,37 +2,9 @@
 using static HockeyTeam;
 /*Ask Sam about the code thats here on his thing*/
 
-public class HockeyTeam
-{
-	public HockeyTeam()
-	{
-		public enum NHLConference { Eastern, Western };
-
-		public enum NHLDivision { Pacific, Atlantic, Central, Metropolitan };
-
-	//Define data fields for storing data
-	private NHLConference _conference;
-	private NHLDivision _division;
-
-	//Define fully-implemented properties for the data fields
-	public NHLConference Conference
-	{
-		get { return _conference; }
-	}
-
-	public NHLDivision Division
-	{
-		get { return _division; }
-		set { _division = value; }
-	}
-
-	}
-
-	
-}
-
 namespace OOPReview1
 {
+
     public class NhlTeam
     {
         //Define an auto-implemented property with a private set
@@ -146,15 +118,58 @@ namespace OOPReview1
             get => Wins * 2 + OvertimeLosses;
         }
 
+        //Define an auto-implemented property with a sprivate set for players
+        public List<Roster> Players { get; private set; }
+
+        public void AddPlayer(Roster currentPlayer)
+        {
+            if(Players.Count >= MaxPlayers)
+            {
+                throw new ArgumentException("Roster is full. Remove a player first")
+            }
+            Players.Add(currentPlayer);
+        }
+
+        public void RemovePlayer(int playerNumber)
+        {
+            //Remove from the Players list the player with the matching playerNo
+            //Throw an argumentexception if the player no does not exist
+            bool foundPlayer = false;
+            int playerIndex = -1;
+            for(int index = 0; index<Players.Count; index++)
+            {
+                if(Players[index].No == playerNumber)
+                {
+                    foundPlayer = true;
+                    playerIndex = index;
+                    index = Players.Count; //stop loop
+                }
+            }
+            if (!foundPlayer) // if(foundPlayer == false)
+            {
+                throw new ArgumentException($"Player {playerNumber} is not on the team");
+            }
+        }
 
         //Constructor for building NHL Team
         public NhlTeam(
-            NhlConference conference,
-            NhlDivision division,
+            NHLConference conference,
+            NHLDivision division,
             string name,
             string city
+            List<Roster> players
             )
         {
+            if (players == null)
+            {
+                players = new List<Roster>();
+            }
+            else
+            {
+                Players = players;
+            }
+
+            players = new List<Roster>(); ///////////////////////
             Conference = conference;
             Division = division;
             Name = name;
