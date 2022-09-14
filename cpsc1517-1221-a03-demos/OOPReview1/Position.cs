@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace OOPReview1
 {
-    public enum NhlDivision
+    public enum Position
     {
-        Metropolitan, 
-        Atlantic, 
-        Central, 
-        Pacific
+        LW,
+        RW,
+        C,
+        D,
+        G
     }
 }
