@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhlSystem", "NhlSystem\NhlSystem.csproj", "{FB33BF72-FA22-4C56-A54E-F8D7ADBA8180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNhlSystem", "TestNhlSystem\TestNhlSystem.csproj", "{45FF2C67-C3DD-431B-A5ED-89544F506734}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB33BF72-FA22-4C56-A54E-F8D7ADBA8180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB33BF72-FA22-4C56-A54E-F8D7ADBA8180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB33BF72-FA22-4C56-A54E-F8D7ADBA8180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB33BF72-FA22-4C56-A54E-F8D7ADBA8180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45FF2C67-C3DD-431B-A5ED-89544F506734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FF2C67-C3DD-431B-A5ED-89544F506734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FF2C67-C3DD-431B-A5ED-89544F506734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45FF2C67-C3DD-431B-A5ED-89544F506734}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB0B4BA7-7B31-471A-84C6-C92E20AE29D0}
+	EndGlobalSection
+EndGlobal
