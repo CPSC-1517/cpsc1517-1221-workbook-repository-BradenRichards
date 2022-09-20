@@ -10,13 +10,18 @@ namespace NhlSystem
     public class Coach : Person
     {
         //Define an auto-implemented property for HireDate
-        public DateTime HireDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         //Define a constructor that passes FullName to the Person base class
 
-        public Coach(string fullName, DateTime hireDate) : base(fullName)
+        public Coach(string fullName, DateTime startDate) : base(fullName)
         {
-            HireDate = hireDate;
+            StartDate = startDate;
+        }
+
+        public override string ToString()
+        {
+            return $"{FullName}, {StartDate}";
         }
     }
 }
