@@ -1,0 +1,38 @@
+{
+  "Coach": {
+    "StartDate": "2021-09-02T00:00:00",
+    "FullName": "Jay Woodcroft"
+  },
+  "Players": [
+    {
+      "Position": 1,
+      "Goals": 0,
+      "Assists": 0,
+      "PrimaryNo": 97,
+      "Points": 0,
+      "_primaryNo": 97,
+      "FullName": "Connor McDavid"
+    },
+    {
+      "Position": 1,
+      "Goals": 0,
+      "Assists": 0,
+      "PrimaryNo": 27,
+      "Points": 0,
+      "_primaryNo": 27,
+      "FullName": "Leon Draisaitl"
+    },
+    {
+      "Position": 3,
+      "Goals": 0,
+      "Assists": 0,
+      "PrimaryNo": 91,
+      "Points": 0,
+      "_primaryNo": 91,
+      "FullName": "Evander Kane"
+    }
+  ],
+  "Name": null,
+  "TotalPlayerPoints": 0,
+  "TeamName": ""
+}

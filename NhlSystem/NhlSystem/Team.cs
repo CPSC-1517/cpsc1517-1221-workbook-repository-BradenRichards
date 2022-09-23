@@ -28,7 +28,8 @@ public class Team
 			throw new ArgumentOutOfRangeException("Team is full. Cannot add any more players");
 		}
 		//Validate that the new player PrimaryNo is not already in use
-		bool primaryNoFound = false;
+		
+		/*bool primaryNoFound = false;
 		foreach(Player currentPlayer in Players)
 		{
 			if(currentPlayer.PrimaryNo == newPlayer.PrimaryNo)
@@ -40,10 +41,17 @@ public class Team
 		if (primaryNoFound)
 		{
 			throw new ArgumentException("PrimaryNo is already in use by another player");
-		}
+		}*/
 
-		//Add the newPlayer to the team
-		Players.Add(newPlayer);
+		bool primaryNoFound = Players.Any(currentPlayer => currentPlayer.PrimaryNo ==newPlayer.PrimaryNo);
+        if (primaryNoFound)
+        {
+            throw new ArgumentException("PrimaryNo is already in use by another player");
+        }
+ 
+
+        //Add the newPlayer to the team
+        Players.Add(newPlayer);
 	}
 
 	//Define a computed property to treturn the total of points of all players
@@ -52,12 +60,18 @@ public class Team
 	{
 		get
 		{
-			int totalpoints = 0;
+			/*int totalpoints = 0;
 			foreach(Player currentPlayer in Players)
 			{
 				totalpoints += currentPlayer.Points;
 			}
-			return totalpoints;
+			return totalpoints;*/
+
+			return Players										//This does the same as the previous funtion
+				.Select(currentPlayer => currentPlayer.Points)
+				.Sum();
+
+			/*return Players.Sum(currentPlayer => currentPlayer.Points);*/ //<-----This is same as previous line
 		}
 	}
 

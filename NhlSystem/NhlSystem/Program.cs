@@ -1,4 +1,8 @@
-﻿/*  Test Plan for Person
+﻿using NhlSystem;
+using System.IO;
+using System.Text.Json;
+
+/*  Test Plan for Person
  *  
  *  Test Case                   Test Data                       Expected Behaviour
  *  ==========                  ==========                      ==================
@@ -102,3 +106,53 @@ foreach(Player currentPlayer in oilersTeam.Players)
 
 //Check the total player points (should be 44+79+22+17+55+55 = 272)
 Console.WriteLine($"Total player points is {oilersTeam.TotalPlayerPoints}");
+
+/* CreatePlayersCsvFile();
+
+static void CreatePlayersCsvFile()
+{
+    DateTime startDate = DateTime.Parse("2021-09-02");
+    Coach oilersCoach = new Coach("Jay Woodcroft", startDate);
+    //Create a new Team
+    Team oilersTeam = new Team("Edmonton Oilers", oilersCoach);
+    //Create 3 Players for the team
+    Player player1 = new Player("Connor McDavid", Position.C, 97);
+    Player player2 = new Player("Leon Draisaitl", Position.C, 27);
+    Player player3 = new Player("Evander Kane", Position.LW, 91);
+
+    oilersTeam.AddPlayer(player1);
+    oilersTeam.AddPlayer(player2);
+    oilersTeam.AddPlayer(player3);
+
+    const string PlayerCsvFile = "../../../Players.csv";
+    File.WriteAllLines(PlayerCsvFile,
+        oilersTeam.Players.Select(currentPlayer => currentPlayer.ToString()).ToList());
+}*/
+
+
+CreateTeamJsonFile();
+static void CreateTeamJsonFile()
+{
+    DateTime startDate = DateTime.Parse("2021-09-02");
+    Coach oilersCoach = new Coach("Jay Woodcroft", startDate);
+    //Create a new Team
+    Team oilersTeam = new Team("Edmonton Oilers", oilersCoach);
+    //Create 3 Players for the team
+    Player player1 = new Player("Connor McDavid", Position.C, 97);
+    Player player2 = new Player("Leon Draisaitl", Position.C, 27);
+    Player player3 = new Player("Evander Kane", Position.LW, 91);
+
+    oilersTeam.AddPlayer(player1);
+    oilersTeam.AddPlayer(player2);
+    oilersTeam.AddPlayer(player3);
+
+    const string TeamJsonFile = "../../../Team.json";
+    JsonSerializerOptions options = new JsonSerializerOptions
+    {
+        WriteIndented = true,
+        IncludeFields = true
+    };
+    string jsonString = JsonSerializer.Serialize<Team>(oilersTeam, options);
+    File.WriteAllText(TeamJsonFile, jsonString);
+    
+}
