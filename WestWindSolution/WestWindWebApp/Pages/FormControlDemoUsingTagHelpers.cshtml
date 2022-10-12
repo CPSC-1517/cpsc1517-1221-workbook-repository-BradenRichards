@@ -1,0 +1,31 @@
+﻿@page
+@model WestWindWebApp.Pages.FormControlDemoUsingTagHelpersModel
+@{
+}
+
+<div class="alert-info">
+    @Model.FeedbackMessage
+</div>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label">Username</label>
+        <input asp-for="Username" type="text" class="form-control" />
+
+        <label asp-for="Age" class="form-label">Age</label>
+        <input asp-for="Age" type="number" min="18" max="99"
+               class="form-control"/>
+        
+        <input asp-for="Gender" type="radio" class="btn-check" name="Male" id="" autocomplete="off">
+        <label class="btn btn-secondary" asp-for="Gender">Male</label>
+
+        <input asp-for="Gender" type="radio" class="btn-check" name="Female" id="option2" autocomplete="off">
+        <label class="btn btn-secondary" asp-for="Gender">Female</label>
+
+        <input asp-for="Gender" type="radio" class="btn-check" name="Unspecified" autocomplete="off">
+        <label class="btn btn-secondary" asp-for="Gender">Unspecified</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
