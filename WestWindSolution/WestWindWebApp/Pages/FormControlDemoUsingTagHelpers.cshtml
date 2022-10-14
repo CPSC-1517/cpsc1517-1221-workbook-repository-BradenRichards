@@ -14,18 +14,58 @@
         <input asp-for="Username" type="text" class="form-control" />
 
         <label asp-for="Age" class="form-label">Age</label>
-        <input asp-for="Age" type="number" min="18" max="99"
-               class="form-control"/>
-        
-        <input asp-for="Gender" type="radio" class="btn-check" name="Male" id="" autocomplete="off">
-        <label class="btn btn-secondary" asp-for="Gender">Male</label>
-
-        <input asp-for="Gender" type="radio" class="btn-check" name="Female" id="option2" autocomplete="off">
-        <label class="btn btn-secondary" asp-for="Gender">Female</label>
-
-        <input asp-for="Gender" type="radio" class="btn-check" name="Unspecified" autocomplete="off">
-        <label class="btn btn-secondary" asp-for="Gender">Unspecified</label>
+        <input asp-for="Age" type="number" min="18" max="99" class="form-control"/>
     </div>
+
+    <div class="mb-3">
+        <div class="form-check">
+            <input asp-for="Gender" class="form-check-input" type="radio" value="Male" id="Male">
+            <label class="form-check-label" asp-for="Gender">
+                Male
+            </label>
+        </div>
+        <div class="form-check">
+            <input asp-for="Gender" class="form-check-input" type="radio" value="Female" id="Female" checked>
+
+            <label class="form-check-label" asp-for="Gender">
+            Female
+            </label>
+        </div>
+        <div class="form-check">
+            <input asp-for="Gender" class="form-check-input" type="radio" value="Unknown" id="Unknown">
+            <label class="form-check-label" asp-for="Gender">
+               Unknown
+            </label>
+        </div>
+    </div>
+
+    <label asp-for="Department">Department</label>
+    <select asp-for ="Department" class="form-select" aria-label="Depatment">
+        <option selected>Open this select menu</option>
+        <option value="DMIT">Digital Media and IT</option>
+        <option value="BAIST">Bachelor of Applied Information Systems Technology</option>
+        <option value="CNT">Computer Network Technology</option>
+        <option value="CED">Computer Engineering Technology</option>
+    </select>
+
+   
+
+        <div class="mb-3">
+            <label asp-for="Comments">Comments</label>
+            <textarea asp-for="Comments" cols="50" rows="5"class="form-control">
+            </textarea>
+        </div>
+
+
+
+    <div class="form-check">
+        <input class="form-check-input"
+        asp-for="Subscribe" />
+        <label class="form-check-label" asp-for="Subscribe">
+            Subscribe to Promotions
+        </label>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>

@@ -13,6 +13,7 @@ namespace WestWindWebApp.Pages
 
         [BindProperty]
         public int Age { get; set; }
+
         public void OnGet()
         {
         }

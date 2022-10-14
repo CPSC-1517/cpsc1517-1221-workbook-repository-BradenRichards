@@ -24,14 +24,14 @@ namespace WestWindWebApp.Pages
         public string Comments { get; set; }
 
         [BindProperty]
-        public bool Subscribe { get; set }
+        public bool Subscribe { get; set; }
         public void OnGet()
         {
         }
 
         public void OnPost()
         {
-            FeedbackMessage = $"Username = {Username}, Age = {Age}";
+            FeedbackMessage = $"Username = {Username}, Age = {Age}, Gender = {Gender}, Department = {Department}, Comments = {Comments}, Subscribe = {Subscribe}";
         }
     }
 }
