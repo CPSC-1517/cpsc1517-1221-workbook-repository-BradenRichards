@@ -18,7 +18,7 @@
     </div>
 
     <div class="mb-3">
-        <div class="form-check">
+@*        <div class="form-check">
             <input asp-for="Gender" class="form-check-input" type="radio" value="Male" id="Male">
             <label class="form-check-label" asp-for="Gender">
                 Male
@@ -36,17 +36,19 @@
             <label class="form-check-label" asp-for="Gender">
                Unknown
             </label>
-        </div>
+        </div>*@
+
+        @foreach
     </div>
 
-    <label asp-for="Department">Department</label>
+   @* <label asp-for="Department">Department</label>
     <select asp-for ="Department" class="form-select" aria-label="Depatment">
         <option selected>Open this select menu</option>
         <option value="DMIT">Digital Media and IT</option>
         <option value="BAIST">Bachelor of Applied Information Systems Technology</option>
         <option value="CNT">Computer Network Technology</option>
         <option value="CED">Computer Engineering Technology</option>
-    </select>
+    </select>*@
 
    
 

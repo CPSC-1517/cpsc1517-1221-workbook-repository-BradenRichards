@@ -25,6 +25,11 @@ namespace WestWindWebApp.Pages
 
         [BindProperty]
         public bool Subscribe { get; set; }
+
+        public string[] GenderOptions { get; } = { "Male", "Female", "Unspecified" };
+
+        public SelectListItem
+
         public void OnGet()
         {
         }
