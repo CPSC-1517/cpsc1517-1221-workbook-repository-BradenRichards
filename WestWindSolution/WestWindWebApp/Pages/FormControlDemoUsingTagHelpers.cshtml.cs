@@ -28,7 +28,7 @@ namespace WestWindWebApp.Pages
 
         public string[] GenderOptions { get; } = { "Male", "Female", "Unspecified" };
 
-        public SelectListItem
+       // public SelectListItem
 
         public void OnGet()
         {
