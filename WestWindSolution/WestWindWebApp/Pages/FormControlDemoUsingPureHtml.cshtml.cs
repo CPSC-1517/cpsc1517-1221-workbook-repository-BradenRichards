@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WestWindWebApp.Pages
+namespace WestwindWebApp.Pages
 {
     public class FormControlDemoUsingPureHtmlModel : PageModel
     {
         [TempData]
-        public string FeedbackMessage { get; set; }
+        public string FeedbackMessage { get; set; } = string.Empty;
 
         [BindProperty]
-        public string Username { get; set; }
+        public string Username { get; set; } = string.Empty;
 
         [BindProperty]
         public int Age { get; set; }

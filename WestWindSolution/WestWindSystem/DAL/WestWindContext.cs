@@ -1,16 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WestWindSystem.Entities;
+using WestwindSystem.Entities;
 
-namespace WestWindSystem.DAL
+namespace WestwindSystem.DAL
 {
-    internal class WestWindContext: DbContext
+    internal class WestwindContext : DbContext
     {
-        public WestWindContext(DbContextOptions<WestWindContext> options) : base(options)
+        public WestwindContext(DbContextOptions<WestwindContext> options) : base(options)
         {
 
         }
@@ -18,5 +13,6 @@ namespace WestWindSystem.DAL
         public DbSet<BuildVersion> BuildVersions => Set<BuildVersion>();
 
         public DbSet<Category> Categories => Set<Category>();
+
     }
 }

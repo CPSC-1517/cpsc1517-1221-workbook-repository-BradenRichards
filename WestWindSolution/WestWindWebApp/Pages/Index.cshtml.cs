@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-#region custom namespaces
-using WestWindSystem.BLL;
-using WestWindSystem.Entities;
-#endregion
+#region custom namepsaces
+using WestwindSystem.BLL;
+using WestwindSystem.Entities;
+#endregion 
 
-namespace WestWindWebApp.Pages
+namespace WestwindWebApp.Pages
 {
     public class IndexModel : PageModel
     {

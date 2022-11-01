@@ -1,6 +1,64 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using OOPReview1;
 
+// Test creating a new Roster with valid values
+Roster validPlayer1 = new Roster(97, "Connor McDavid", Position.C);
+//var validPlayer1 = new Roster(97, "Connor McDavid", Position.C);
+// Print the validPlayer1 object to the screen
+// The output should be "97,Connor McDavid,C"
+// should be C
+Console.WriteLine(validPlayer1);
+
+try
+{
+    // Test creating a new Roster with a invalid No
+    Roster invalidPlayer1 = new Roster(100, "Leon Draisatil", Position.C);
+    // An ArgumentOutOfRangeException should be thrown with a message 
+    // indentifying what the error is
+}
+catch(ArgumentOutOfRangeException ex)
+{
+    // The ParamName of the exception should be
+    // "Player number must be between 1 and 98"
+    //Console.WriteLine(ex.Message);  
+    Console.WriteLine(ex.ParamName);
+}
+
+try
+{
+    // Test creating a new Roster with a invalid null name
+    Roster invalidPlayer1 = new Roster(29, null, Position.C);
+    // An ArgumentOutOfRangeException should be thrown with a message 
+    // indentifying what the error is
+}
+catch (ArgumentNullException ex)
+{
+    // The ParamName of the exception should be
+    // "Name must contain text"
+    //Console.WriteLine(ex.Message);  
+    Console.WriteLine(ex.ParamName);
+}
+
+try
+{
+    // Test creating a new Roster with a invalid whitespace  name
+    Roster invalidPlayer1 = new Roster(29, "        ", Position.C);
+    // An ArgumentOutOfRangeException should be thrown with a message 
+    // indentifying what the error is
+}
+catch (ArgumentNullException ex)
+{
+    // The ParamName of the exception should be
+    // "Name must contain text"
+    //Console.WriteLine(ex.Message);  
+    Console.WriteLine(ex.ParamName);
+}
+
+
+
+
+
+
 var senators = new NhlTeam(
     NhlConferene.Eastern, 
     NhlDivision.Atlantic,
@@ -13,55 +71,6 @@ senators.OvertimeLosses = 7;
 // Print the Points - should be 73
 Console.WriteLine(senators);
 Console.WriteLine($"Points = {senators.Points}");
+    
 
-
-//Test creating a new Roster with valid values
-var validPlayer1 = new Roster(97, "Connor McDavid", Position.C);
-//OR
-//Roster validPlayer1 = new Roster(97, "Connor McDavid", Position.C);
-//Print the validPlayer1 object to the screen
-
-Console.WriteLine(validPlayer1); // Player Number should be 97, Name: Connor McDavid, Position: C
-
-//Test creating a new Roster with a invalid No
-//Expected behaviour is that ArgumentOutOfRangeException is Thrown
-//With a message identifying what the error is
-try
-{
-    Roster invalidPlayer1 = new Roster(100, "Leon Draisaitl", Position.C);
-}
-catch(ArgumentOutOfRangeException ex)
-{
-    Console.WriteLine(ex.ParamName);
-    //The paramName of the exception should be 
-    //"Player number must be between 0 and 98"
-
-    //When firing parameter exception use ex.ParamName
-    //instead of ex.message to avoid error message showing additional
-    //and unnecessary information
-}
-
-
-//Test creating a new Roster with a invalid PlayerName ie.(empty name entered or not using text)
-//Expected outcome is ArgumentNullException being fired
-//"Name must contain text"
-try
-{
-    //We can reuse invalidPlayer1 in every test case because once the try
-    //is fired invalidPlayer essentially resets
-    Roster invalidPlayer1 = new Roster(10, "  ", Position.G);
-}
-catch(ArgumentNullException ex)
-{
-    Console.WriteLine(ex.ParamName);
-}
-
-try
-{
-    Roster invalidPlayer1 = new Roster(91, null, Position.G);
-}
-catch(ArgumentNullException ex)
-{
-    Console.WriteLine(ex.ParamName);
-}
 

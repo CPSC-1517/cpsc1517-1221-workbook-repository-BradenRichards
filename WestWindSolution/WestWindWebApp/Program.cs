@@ -1,11 +1,11 @@
-#region namespacex required to setup database services
+#region namespaces required to setup database services
 using Microsoft.EntityFrameworkCore;
 using WestwindSystem; // To be able to set extension method AddBackendDependencies in StartupExtensions.cs
 #endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
-#region code required to set up database services
+#region code required to setup database services
 
 var dbConnectionString = builder.Configuration.GetConnectionString("WestwindLocalDb");
 builder.Services.AddBackendDependencies(options => options.UseSqlServer(dbConnectionString));
@@ -29,7 +29,6 @@ builder.Services.AddTransient<CategoryServices>(serviceProvider =>
     return new CategoryServices(context);
 });
 */
-
 #endregion
 
 // Add services to the container.

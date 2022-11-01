@@ -1,58 +1,72 @@
 ﻿@page
-@model WestWindWebApp.Pages.SendMailModel
+@model WestwindWebApp.Pages.SendMailModel
 @{
 }
-
 <h1>Email Client App</h1>
-
 
 @Html.Raw(Model.FeedbackMessage)
 
-
 <form method="post">
    @* <div class="mb-3">
-        <label asp-for="MailUsername" class="form-label">Username</label>
+        <label asp-for="MailUsername"
+               class="form-label" >
+               Gmail Email address
+        </label>
         <input asp-for="MailUsername" 
-        type="text"
-        class="form-control"
-        required/>
+            type="email" 
+            class="form-control"  
+            required
+            >
     </div>
-
     <div class="mb-3">
-        <label asp-for="MailPassword" class="form-label">Password</label>
-        <input asp-for="MailPassword" 
-        type="password" 
-        class="form-control"
-        required/>
+        <label asp-for="MailAppPassword" 
+                class="form-label">
+                Gmail App Password
+        </label>
+        <input asp-for="MailAppPassword" 
+            type="password" 
+            required
+            class="form-control">
     </div>*@
-
     <div class="mb-3">
-        <label asp-for="MailToAddress" class="form-label">Email To</label>
+        <label asp-for="MailToAddress"
+               class="form-label">
+            Mail To Email address
+        </label>
         <input asp-for="MailToAddress"
-        type="email"
-        class="form-control"
-        required/>
+               type="email"
+               class="form-control"
+               required>
     </div>
-
     <div class="mb-3">
-        <label asp-for="MailSubject" class="form-label">Subject</label>
-        <input asp-for="MailSubject" 
-        type="text" 
-        class="form-control"
-        />
+        <label asp-for="MailSubject"
+               class="form-label">
+           Subject
+        </label>
+        <input asp-for="MailSubject"
+               class="form-control"
+               required>
     </div>
-
     <div class="mb-3">
-        <label asp-for="MailMessage">Message</label>
+        <label asp-for="MailMessage"
+               class="form-label">
+            Message
+        </label>
         <textarea asp-for="MailMessage"
-        cols="50" 
-        rows="5" 
-        class="form-control">
+            rows="10"
+            cols="50"
+            class="form-control"
+            required>
         </textarea>
     </div>
-
-    <button asp-page-handler="SendMail" type="submit" class="btn btn-primary">Send Mail</button>
-
-    <button asp-page-handler="ClearForm" type="submit" class="btn btn-secondary">Clear</button>
-
+    <button type="submit" 
+        asp-page-handler="SendMail"
+        class="btn btn-primary">
+        Send Mail
+    </button>
+    <button type="submit" 
+        asp-page-handler="ClearForm"
+        class="btn btn-secondary">
+        Clear
+    </button>
 </form>

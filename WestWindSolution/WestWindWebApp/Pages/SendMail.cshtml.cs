@@ -1,20 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;
-using System.Net.Mail;
-using System.Security.Cryptography;
+using System.Net.Mail;  // for WebMail class
 
-namespace WestWindWebApp.Pages
+namespace WestwindWebApp.Pages
 {
     public class SendMailModel : PageModel
     {
-
         public void OnGet()
         {
             //var gmailUsername = Configuration["GmailCredentials:Username"];
             //var gmailAppPassword = Configuration["GmailCredentials:Password"];
-            //FeedbackMessage = $"Gmail Username = {gmailUsername} <br />";
-            //FeedbackMessage += $"Gmail App Password = {gmailAppPassword} <br />";
+            //FeedbackMessage = $"Gmail username = {gmailUsername} <br />";
+            //FeedbackMessage += $"Gmail app password = {gmailAppPassword} <br />";
         }
 
         private readonly IConfiguration Configuration;
@@ -25,23 +23,26 @@ namespace WestWindWebApp.Pages
         }
 
         [BindProperty]
-        public string FeedbackMessage { get; set; }
+        public string FeedbackMessage { get; set; } = string.Empty;
 
         [BindProperty]
-        public string MailToAddress { get; set; }
+        public string MailUsername { get; set; } = string.Empty;
+
         [BindProperty]
-        public string MailSubject { get; set; }
+        public string MailAppPassword { get; set; } = string.Empty;
+
         [BindProperty]
-        public string MailUsername { get; set; }
+        public string MailToAddress { get; set; } = string.Empty;
+
         [BindProperty]
-        public string MailPassword { get; set; }
+        public string MailSubject { get; set; } = string.Empty;
+
         [BindProperty]
-        public string MailMessage { get; set; }
+        public string MailMessage { get; set; } = string.Empty;
 
         public void OnPostSendMail()
         {
-            FeedbackMessage = "<h2>Send Mail button clicked</h2>";
-
+            //FeedbackMessage = "<h2>Send Mail button clicked</h2>";
             var sendMailClient = new SmtpClient();
             sendMailClient.Host = "smtp.gmail.com";
             sendMailClient.Port = 587;
@@ -49,9 +50,9 @@ namespace WestWindWebApp.Pages
 
             var sendMailCredentials = new NetworkCredential();
             MailUsername = Configuration["GmailCredentials:Username"];
-            MailPassword = Configuration["GmailCredentials:Password"];
+            MailAppPassword = Configuration["GmailCredentials:Password"];
             sendMailCredentials.UserName = MailUsername;
-            sendMailCredentials.Password = MailPassword;
+            sendMailCredentials.Password = MailAppPassword;
 
             sendMailClient.Credentials = sendMailCredentials;
 
@@ -65,17 +66,16 @@ namespace WestWindWebApp.Pages
             try
             {
                 sendMailClient.Send(mailMessage);
-                //Clear the form fields associated with the properties below
+                // Clear the form fields associated with the properties below
+                MailToAddress = "";
                 MailSubject = "";
                 MailMessage = "";
-                MailToAddress = "";
                 FeedbackMessage = "<div class='alert alert-primary'>Email Sent!</div>";
             }
-            catch(Exception)
+            catch (Exception ex)
             {
-                FeedbackMessage = "<div class='alert alert-danger'>Error sending email</div>";
+                FeedbackMessage = $"<div class='alert alert-danger'>Error sending email {ex.Message}</div>";
             }
-            
         }
 
         public void OnPostClearForm()
@@ -83,6 +83,6 @@ namespace WestWindWebApp.Pages
             FeedbackMessage = "<h2>Clear Form button clicked</h2>";
         }
 
-
+   
     }
 }

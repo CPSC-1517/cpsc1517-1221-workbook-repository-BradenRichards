@@ -1,0 +1,25 @@
+﻿@page
+@model RazorSyntaxDemo.Pages.FormExample02Model
+@{
+}
+<h1>Lotto MAX Generator</h1>
+
+@Model.FeedbackMessage
+
+@if(@Model.GeneratedNumbers.Count > 0) 
+{
+    <table style="border-collapse: collapse;">
+        <tr>
+          @foreach (var num in Model.GeneratedNumbers)
+            {
+                <td style="width:50px; border:solid; border-color: brown">@num</td>
+            }
+        </tr>
+    </table>
+}
+
+
+<form method="POST">
+    <button type="submit">Get Lucky Numbers</button>
+
+</form>

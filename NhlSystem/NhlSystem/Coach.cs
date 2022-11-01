@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace NhlSystem
 {
-    //Define a class named Coach that inherits from the base class person
+    // Define a class name Coach that inherits from the base class Person
     public class Coach : Person
     {
-        //Define an auto-implemented property for HireDate
+        // Define a auto-implemented property for HireDate 
         public DateTime StartDate { get; set; }
 
-        //Define a constructor that passes FullName to the Person base class
-
+        // Define constructor that passes FullName to the Person base class
         public Coach(string fullName, DateTime startDate) : base(fullName)
         {
             StartDate = startDate;
@@ -21,7 +20,7 @@ namespace NhlSystem
 
         public override string ToString()
         {
-            return $"{FullName}, {StartDate}";
+            return $"{FullName},{StartDate}";
         }
     }
 }

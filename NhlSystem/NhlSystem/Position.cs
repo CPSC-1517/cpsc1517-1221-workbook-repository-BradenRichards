@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace NhlSystem
 {
-        public enum Position
-        {
-            G,
-            C,
-            RW,
-            LW,
-            D
-        }
+    public enum Position
+    {
+        LW,
+        RW,
+        C,
+        D,
+        G
+    }
 }

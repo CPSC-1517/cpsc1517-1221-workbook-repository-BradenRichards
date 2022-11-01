@@ -8,38 +8,35 @@ namespace NhlSystem
 {
     public class Person
     {
-        //Define a fully implemented property for
-        //Full Name with a private set
+        // Define a fully-implmented property for FullName with a private set
 
-        private string _fullName = string.Empty; //Define a backing field for the FullName Property
-
+        private string _fullName = string.Empty;   // Define a backing field for the FullName property
+    
         public string FullName
         {
             get { return _fullName; }
+
             private set 
-            {
-                //Validate new value is not null or empty string
-                //or whitespaces only
-                //Validate new value contains minimum
-                //3 or more characters
-                if(string.IsNullOrWhiteSpace(value))
+            { 
+                // Validate new value is not null or empty string or whitespaces only
+                if (string.IsNullOrWhiteSpace(value) )
                 {
                     throw new ArgumentNullException("FullName value is required");
                 }
-
-                //Validate new value contains minimum 3 or more characters
-                if(value.Trim().Length < 3)
+                // Validate new value contains at minimum 3 or more characters
+                if (value.Trim().Length < 3)
                 {
                     throw new ArgumentException("FullName must contain 3 or more characters");
                 }
-                _fullName = value.Trim(); //.Trim() removes leading and trailing whitespaces 
-            }
+                _fullName = value.Trim();   // Remove leading and trailing whitespaces 
+            }  
         }
 
-        //Create a greedy constructor with a parameer for the fullName
-        public Person(string _fullName)
+        // Create a greedy constructor with a parameter for the fullName
+        public Person(string fullName)
         {
-            FullName = _fullName;
+            FullName = fullName;
         }
+
     }
 }

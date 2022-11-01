@@ -1,74 +1,96 @@
-﻿@*@*@*@*@page
-@model WestWindWebApp.Pages.FormControlDemoUsingTagHelpersModel
+﻿@page
+@model WestwindWebApp.Pages.FormControlDemoUsingTagHelpersModel
 @{
 }
-
 <div class="alert-info">
     @Model.FeedbackMessage
 </div>
-
 <form method="post">
 
     <div class="mb-3">
         <label asp-for="Username" class="form-label">Username</label>
-        <input asp-for="Username" type="text" class="form-control" />
-
+        <input asp-for="Username"
+               class="form-control"
+               placeholder="Enter your name"
+                 />
+    </div>
+    <div class="mb-3">
         <label asp-for="Age" class="form-label">Age</label>
-        <input asp-for="Age" type="number" min="18" max="99" class="form-control"/>
-    </div>*@
+        <input asp-for="Age" 
+               min="18" max="99"
+               class="form-control"                              
+               />
+    </div>
 
-  @*  <div class="mb-3">*@
-@*        <div class="form-check">
-            <input asp-for="Gender" class="form-check-input" type="radio" value="Male" id="Male">
+    <div class="btn-group" role="group">
+        Gender:
+        
+        @*<div class="form-check">
+            <input class="form-check-input" type="radio" 
+                asp-for="Gender" value="Male">
             <label class="form-check-label" asp-for="Gender">
                 Male
             </label>
         </div>
         <div class="form-check">
-            <input asp-for="Gender" class="form-check-input" type="radio" value="Female" id="Female" checked>
-
+            <input class="form-check-input" type="radio" 
+                asp-for="Gender" value="Female" checked>
             <label class="form-check-label" asp-for="Gender">
-            Female
+                Female
             </label>
         </div>
         <div class="form-check">
-            <input asp-for="Gender" class="form-check-input" type="radio" value="Unknown" id="Unknown">
+            <input class="form-check-input" type="radio"
+                   asp-for="Gender" value="Unspecified">
             <label class="form-check-label" asp-for="Gender">
-               Unknown
+                Unspecified
             </label>
         </div>*@
 
-    @*   @foreach*@
-@* </div>*@
+        @foreach (var currentGender in Model.GenderOptions)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="radio"
+                   asp-for="Gender"
+                   id="Gender@(currentGender)"
+                   value="@currentGender">
+                <label class="form-check-label" asp-for="Gender">
+                    @currentGender
+                </label>
+            </div>
+        }
+    </div>
 
-   @* <label asp-for="Department">Department</label>
-    <select asp-for ="Department" class="form-select" aria-label="Depatment">
-        <option selected>Open this select menu</option>
+    <label asp-for="Department">Department</label>
+   @* <select asp-for="Department"
+        class="form-select" aria-label="Department">
+        <option selected >Open this select menu</option>
         <option value="DMIT">Digital Media and IT</option>
         <option value="BAIST">Bachelor of Applied Information Systems Technology</option>
         <option value="CNT">Computer Network Technology</option>
-        <option value="CED">Computer Engineering Technology</option>
+        <option value="CET">Computer Engineering Technology</option>
     </select>*@
+    <select asp-for="Department"
+            class="form-select" 
+            asp-items="Model.DepartmentListItems"
+            aria-label="Department">
+        <option selected>Open this select menu</option>        
+    </select>
 
-   
-@*
-        <div class="mb-3">
-            <label asp-for="Comments">Comments</label>
-            <textarea asp-for="Comments" cols="50" rows="5"class="form-control">
-            </textarea>
-        </div>*@
+    <div class="mb-3">
+        <label asp-for="Comments">Comments</label>
+        <textarea asp-for="Comments" cols="50" rows="5" class="form-control">
+        </textarea>
+    </div>
 
-
-
-@*    <div class="form-check">
-        <input class="form-check-input"
-        asp-for="Subscribe" />
+    <div class="form-check">
+        <input class="form-check-input" 
+            asp-for="Subscribe" >
         <label class="form-check-label" asp-for="Subscribe">
-            Subscribe to Promotions
+            Subcribe to promotions
         </label>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 
-</form>*@
-*@*@*@
+</form>

@@ -15,6 +15,7 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: lightcyan;
+  background-color: darkslategrey;
+  color: white;
+  font-family: Impact;
 }
-
