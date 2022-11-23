@@ -1,0 +1,56 @@
+﻿@page
+@model WestwindWebApp.Pages.Products.ProductCategoryModel
+@{
+}
+
+<h1>Product Category</h1>
+
+@if (Model.InfoMessage != null){
+    <div class="alert alert-info">
+        @Model.InfoMessage
+    </div>
+}
+@if (Model.ErrorMessage != null){
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}
+
+<form method="post">
+    <div>
+    <label asp-for="SelectedCategoryID">Select Category</label>
+    <select asp-for="SelectedCategoryID"
+    asp-items="Model.CategorySelectList"
+    class="form-select form-select-lg mb-3"
+    aria-label=".form-select-lg category">
+    <option>---select a category---</option>
+    </select>
+    </div>
+
+    <div>
+        <button type="submit" asp-page-handler="FetchProducts"? class="button button-primary">Fetch Produts</button>
+        <button type="submit" asp-page-handler="Clear" ? class="button button-secondary">Clear</button>
+        <button type="submit" asp-page-handler="NewProduct" ? class="button button-success">New Product</button>
+    </div>
+
+    @if(Model.QueryProductResultList != null && Model.QueryProductResultList.Count > 0){
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var currentProduct in Model.QueryProductResultList){
+                    <tr>
+                        <td>@currentProduct.Id</td>
+                        <td>@currentProduct.ProductName</td>
+                        <td><a href="/Products/ProductCrud/@currentProduct.Id">Edit</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</form>

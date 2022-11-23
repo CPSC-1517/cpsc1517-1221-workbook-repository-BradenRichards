@@ -1,13 +1,20 @@
-﻿@page
+﻿@page 
 @model WestwindWebApp.Pages.Products.QueryModel
 @{
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.FeedbackMessage)) 
+{
+    <div class="alert alert-info">
+        @Model.FeedbackMessage
+    </div>
 }
 
 <form method="post">
     <div class="mb-3">
 
         <label asp-for="SelectedCategoryId">Category</label>
-        <select asp-for="SelectedCategoryId"
+       @* <select asp-for="SelectedCategoryId"
                 class="form-select" 
                 aria-label="Category">
             <option selected >--- select a category ---</option>            
@@ -15,6 +22,45 @@
             {
                 <option value="@currentCategory.Id">@currentCategory.CategoryName</option>
             }
+        </select>*@
+        <select 
+            asp-for="SelectedCategoryId"
+            asp-items="Model.CategorySelectionList">
+            <option selected>--- select a category ---</option>
         </select>
     </div>
+
+    <div class="mb-3">
+        <label asp-for="QueryProductName" lass="form-label">Product Name</label>
+        <input class="form-control"
+               asp-for="QueryProductName" />
+    </div>
+
+    <button type="submit" asp-page-handler="SearchByCategory" class="btn btn-primary">Search by Category</button>
+    <button type="submit" asp-page-handler="SearchByProductName" class="btn btn-primary">Search by Product Name</button>
+    <button type="submit" asp-page-handler="ClearForm" class="btn btn-light">Clear</button>
+
 </form>
+
+@if (Model.QueryResultList != null)
+{
+    <table class="table" style="color:yellowgreen; font-family: Verdana; ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var currentProduct in Model.QueryResultList)
+            {
+                <tr>
+                    <td>@currentProduct.Id</td>
+                    <td>@currentProduct.ProductName</td>
+                    <td>@currentProduct.UnitPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
